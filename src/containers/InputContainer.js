@@ -4,12 +4,12 @@ import Button from '@material-ui/core/Button'
 import Icon from '@material-ui/core/Icon'
 
 const InputContainer = (props) => {
-  const { setSelectedCoords, setSelectedCity } = props
+  const { setSelectedCity, clickHandler } = props
 
   const suggestionSelect = (result, lat, lng, text) => {
     const coords = [lat, lng]
-    setSelectedCoords(coords)
-    setSelectedCity(result)
+    const cityObj = { name: result, coords: coords }
+    setSelectedCity(cityObj)
   }
 
   return (
@@ -24,6 +24,7 @@ const InputContainer = (props) => {
         color="primary"
         className="add-button"
         startIcon={<Icon>add_circle</Icon>}
+        onClick={clickHandler}
       > Add Location </Button>
     </div>
   )

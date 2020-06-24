@@ -6,18 +6,25 @@ import DisplayContainer from './containers/DisplayContainer'
 import './styles/index.css';
 
 function App() {
-  const [selectedCoords, setSelectedCoords] = useState(null)
   const [selectedCity, setSelectedCity] = useState(null)
+  const [cityList, setCityList] = useState([])
+
+  const addCityDisplay = () => {
+    if (selectedCity !== null) {
+      const newCityList = [...cityList, selectedCity]
+      setCityList(newCityList)
+      setSelectedCity(null)
+    }
+  }
 
   return (
     <div className="App">
       <InputContainer
-        setSelectedCoords={setSelectedCoords}
         setSelectedCity={setSelectedCity}
+        clickHandler={addCityDisplay}
       />
       <DisplayContainer
-        selectedCoords={selectedCoords}
-        selectedCity={selectedCity}
+        cityList={cityList}
       />
     </div>
   );

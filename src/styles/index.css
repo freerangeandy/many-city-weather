@@ -1,7 +1,7 @@
 .App {
   font-family: sans-serif;
   text-align: center;
-  margin: 6rem 0;
+  margin: 6rem ;
 }
 
 .add-city {
@@ -16,5 +16,10 @@
 .city-input {
   font-size: 1.6rem;
   height: 2.7rem;
+  width: 50rem;
   margin-right: 0.5rem;
+}
+
+.display-city {
+  list-style: none;
 }
