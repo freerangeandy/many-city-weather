@@ -1,31 +1,48 @@
+body {
+  background-color: #ECFDF1;
+  font-family: Gill Sans, sans-serif;
+}
+
 .App {
-  font-family: sans-serif;
   text-align: center;
-  margin: 6rem ;
+}
+
+.page-title {
+  font-size: 3rem;
+  color: #3F50B5;
 }
 
 .add-city {
   display: flex;
   flex-direction: row;
+  padding: 0 3%;
 }
 
 .add-button {
+  min-width: 12rem;
+}
+
+.add-button button {
   height: 3rem;
 }
 
 .city-input {
   font-size: 1.6rem;
   height: 2.7rem;
-  width: 50rem;
+  width: 60rem;
   margin-right: 0.5rem;
 }
 
 .display-city {
   list-style: none;
+  background-color: #FFD392;
+  padding: 0 0.4rem 0.4rem 0.4rem;
+  border-radius: 0.4rem;
 }
 
 .city-name {
   padding-top: 1rem;
+  color: #4A4A4A;
 }
 
 .forecast-tile {
@@ -33,6 +50,7 @@
   border-radius: 0.4rem;
   background-color: #EAEFF2;
   padding: 0.4rem;
+  color: #4A4A4A;
 }
 
 .forecast-tile h3 {
@@ -59,6 +77,5 @@
 .night-bg {
   background-color: #4C5270;
   border: 0.5rem solid #4C5270;
-
   color: white;
 }
