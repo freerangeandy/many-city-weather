@@ -3,3 +3,18 @@
   text-align: center;
   margin: 6rem 0;
 }
+
+.add-city {
+  display: flex;
+  flex-direction: row;
+}
+
+.add-button {
+  height: 3rem;
+}
+
+.city-input {
+  font-size: 1.6rem;
+  height: 2.7rem;
+  margin-right: 0.5rem;
+}
