@@ -19,6 +19,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1 className="page-title">How's the weather over there?</h1>
       <InputContainer
         setSelectedCity={setSelectedCity}
         clickHandler={addCityDisplay}

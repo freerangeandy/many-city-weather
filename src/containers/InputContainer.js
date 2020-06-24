@@ -19,13 +19,14 @@ const InputContainer = (props) => {
         onSuggestionSelect={suggestionSelect}
         inputClass="city-input"
       />
-      <Button
-        variant="contained"
-        color="primary"
-        className="add-button"
-        startIcon={<Icon>add_circle</Icon>}
-        onClick={clickHandler}
-      > Add Location </Button>
+      <div className="add-button">
+        <Button
+          variant="contained"
+          color="primary"
+          startIcon={<Icon>add_circle</Icon>}
+          onClick={clickHandler}
+        > Add&nbsp;Location </Button>
+      </div>
     </div>
   )
 }

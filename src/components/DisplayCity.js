@@ -79,12 +79,10 @@ const DisplayCity = (props) => {
 
   return (
     <li className="display-city">
-      <Paper elevation={0}>
-        <h1 className="city-name">{cityName}</h1>
-        <Grid container spacing={1}>
-        {cityForecasts}
-        </Grid>
-      </Paper>
+      <h1 className="city-name">{cityName}</h1>
+      <Grid container spacing={1}>
+      {cityForecasts}
+      </Grid>
     </li>
   )
 }
