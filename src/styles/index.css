@@ -23,3 +23,42 @@
 .display-city {
   list-style: none;
 }
+
+.city-name {
+  padding-top: 1rem;
+}
+
+.forecast-tile {
+  border: 0.2rem solid #EAEFF2;
+  border-radius: 0.4rem;
+  background-color: #EAEFF2;
+  padding: 0.4rem;
+}
+
+.forecast-tile h3 {
+  margin: 1rem 0;
+}
+
+.forecast-tile h2 {
+  margin: 1rem 0;
+}
+
+.weather-icon {
+  margin: auto;
+}
+
+.weather-card {
+  border-radius: 1rem;
+}
+
+.day-bg {
+  background-color: #BCECE0;
+  border: 0.5rem solid #BCECE0;
+}
+
+.night-bg {
+  background-color: #4C5270;
+  border: 0.5rem solid #4C5270;
+
+  color: white;
+}

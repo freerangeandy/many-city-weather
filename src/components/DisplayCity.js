@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 
+import DisplayForecast from './DisplayForecast'
+
 const OPEN_WEATHER_PATH = 'https://api.openweathermap.org/data/2.5/forecast'
 const WEATHER_API_KEY = '85605c622914f5dad8bccbb102c2769c'
 
@@ -30,6 +32,7 @@ const DisplayCity = (props) => {
       setCityInfo(responseJson.city)
       const forecasts = getForecasts(responseJson.list)
       setCityWeather(forecasts)
+      console.log(forecasts)
     })
     .catch((error) => console.error(`Error in fetch: ${error.message}`))
   }
@@ -38,12 +41,19 @@ const DisplayCity = (props) => {
     return rawList.map(forecast => {
       const celsius = forecast.main.temp - 273.14
       const fahrenheit = celsius * 9/5 + 32
+      const timeStamp = forecast.dt_txt
+      const dateObj = new Date(timeStamp)
+      const month = dateObj.getMonth()
+      const day = dateObj.getDate()
+      const date = `${month}/${day}`
+      const hour = dateObj.getHours()
       return {
-        timeStamp: forecast.dt_txt,
+        date,
+        hour,
         temp: fahrenheit,
-        main: forecast.weather.main,
-        description: forecast.weather.description,
-        icon: forecast.weather.icon,
+        main: forecast.weather[0].main,
+        description: forecast.weather[0].description,
+        icon: forecast.weather[0].icon,
         cloudCover: forecast.clouds,
         windSpeed: forecast.wind.speed
       }
@@ -61,7 +71,7 @@ const DisplayCity = (props) => {
     .map((forecast, index) => {
       return (
         <Grid item xs={2} key={index}>
-          <h4>{forecast.temp.toFixed(0)}</h4>
+          <DisplayForecast forecast={forecast} />
         </Grid>
       )
     })
@@ -69,9 +79,9 @@ const DisplayCity = (props) => {
 
   return (
     <li className="display-city">
-      <Paper elevation={2}>
-        <h1>{cityName}</h1>
-        <Grid container spacing={0}>
+      <Paper elevation={0}>
+        <h1 className="city-name">{cityName}</h1>
+        <Grid container spacing={1}>
         {cityForecasts}
         </Grid>
       </Paper>
