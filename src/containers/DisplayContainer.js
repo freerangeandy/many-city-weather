@@ -1,11 +1,20 @@
 import React from 'react'
 
+import DisplayCity from '../components/DisplayCity'
+
 const DisplayContainer = (props) => {
-  const { selectedCoords, selectedCity } = props
+  const { cityList } = props
+
+  let displayList
+  displayList = cityList.map(({ name, coords }, index) => {
+    return <DisplayCity key={index} name={name} coords={coords} />
+  })
+
   return (
     <div>
-      <h1>{selectedCity}</h1>
-      <h2>{selectedCoords}</h2>
+      <ul>
+        {displayList}
+      </ul>
     </div>
   )
 }
