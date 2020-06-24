@@ -23,3 +23,20 @@
 .display-city {
   list-style: none;
 }
+
+.city-name {
+  padding-top: 1rem;
+}
+
+.weather-icon {
+  margin: auto;
+  width: 2rem;
+}
+
+.forecast-tile h3 {
+  margin: 1rem 0;
+}
+
+.forecast-tile h2 {
+  margin: 1rem 0;
+}
