@@ -1,23 +1,25 @@
 {
   "files": {
-    "main.css": "/many-city-weather/static/css/main.75df9f48.chunk.css",
-    "main.js": "/many-city-weather/static/js/main.b2d843f0.chunk.js",
-    "main.js.map": "/many-city-weather/static/js/main.b2d843f0.chunk.js.map",
+    "main.css": "/many-city-weather/static/css/main.e816dd2c.chunk.css",
+    "main.js": "/many-city-weather/static/js/main.3143cd3b.chunk.js",
+    "main.js.map": "/many-city-weather/static/js/main.3143cd3b.chunk.js.map",
     "runtime-main.js": "/many-city-weather/static/js/runtime-main.888f233b.js",
     "runtime-main.js.map": "/many-city-weather/static/js/runtime-main.888f233b.js.map",
-    "static/js/2.673d6a38.chunk.js": "/many-city-weather/static/js/2.673d6a38.chunk.js",
-    "static/js/2.673d6a38.chunk.js.map": "/many-city-weather/static/js/2.673d6a38.chunk.js.map",
+    "static/css/2.17bfc966.chunk.css": "/many-city-weather/static/css/2.17bfc966.chunk.css",
+    "static/js/2.42742079.chunk.js": "/many-city-weather/static/js/2.42742079.chunk.js",
+    "static/js/2.42742079.chunk.js.map": "/many-city-weather/static/js/2.42742079.chunk.js.map",
     "index.html": "/many-city-weather/index.html",
-    "precache-manifest.6580dfd7806ac9b90f688634c2a75b94.js": "/many-city-weather/precache-manifest.6580dfd7806ac9b90f688634c2a75b94.js",
+    "precache-manifest.ec062311b2f01d800b0f16ef378746df.js": "/many-city-weather/precache-manifest.ec062311b2f01d800b0f16ef378746df.js",
     "service-worker.js": "/many-city-weather/service-worker.js",
-    "static/css/main.75df9f48.chunk.css.map": "/many-city-weather/static/css/main.75df9f48.chunk.css.map",
-    "static/js/2.673d6a38.chunk.js.LICENSE.txt": "/many-city-weather/static/js/2.673d6a38.chunk.js.LICENSE.txt",
-    "static/media/mintbean.png": "/many-city-weather/static/media/mintbean.cf18b629.png"
+    "static/css/2.17bfc966.chunk.css.map": "/many-city-weather/static/css/2.17bfc966.chunk.css.map",
+    "static/css/main.e816dd2c.chunk.css.map": "/many-city-weather/static/css/main.e816dd2c.chunk.css.map",
+    "static/js/2.42742079.chunk.js.LICENSE.txt": "/many-city-weather/static/js/2.42742079.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.888f233b.js",
-    "static/js/2.673d6a38.chunk.js",
-    "static/css/main.75df9f48.chunk.css",
-    "static/js/main.b2d843f0.chunk.js"
+    "static/css/2.17bfc966.chunk.css",
+    "static/js/2.42742079.chunk.js",
+    "static/css/main.e816dd2c.chunk.css",
+    "static/js/main.3143cd3b.chunk.js"
   ]
 }
