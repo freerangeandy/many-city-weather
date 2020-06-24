@@ -32,6 +32,7 @@ const DisplayCity = (props) => {
       setCityInfo(responseJson.city)
       const forecasts = getForecasts(responseJson.list)
       setCityWeather(forecasts)
+      console.log(forecasts)
     })
     .catch((error) => console.error(`Error in fetch: ${error.message}`))
   }
@@ -50,9 +51,9 @@ const DisplayCity = (props) => {
         date,
         hour,
         temp: fahrenheit,
-        main: forecast.weather.main,
-        description: forecast.weather.description,
-        icon: forecast.weather.icon,
+        main: forecast.weather[0].main,
+        description: forecast.weather[0].description,
+        icon: forecast.weather[0].icon,
         cloudCover: forecast.clouds,
         windSpeed: forecast.wind.speed
       }
@@ -78,9 +79,9 @@ const DisplayCity = (props) => {
 
   return (
     <li className="display-city">
-      <Paper elevation={2}>
+      <Paper elevation={0}>
         <h1 className="city-name">{cityName}</h1>
-        <Grid container spacing={0}>
+        <Grid container spacing={1}>
         {cityForecasts}
         </Grid>
       </Paper>
