@@ -1,5 +1,6 @@
 {
   "name": "many-city-weather",
+  "homepage": "https://freerangeandy.github.io/many-city-weather/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
