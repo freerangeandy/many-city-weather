@@ -31,10 +31,11 @@ const DisplayCity = (props) => {
     })
     .then(response => response.json())
     .then(responseJson => {
+      const currentWeather = getWeatherInfo(responseJson)
+      setCityWeather(currentWeather)
       console.log(responseJson)
     })
     .catch((error) => console.error(`Error in fetch: ${error.message}`))
-
   }
 
   const fetchForecast = (coords) => {
@@ -58,27 +59,27 @@ const DisplayCity = (props) => {
     .catch((error) => console.error(`Error in fetch: ${error.message}`))
   }
 
-  const getForecasts = (rawList) => {
-    return rawList.map(forecast => {
-      const celsius = forecast.main.temp - 273.14
-      const fahrenheit = celsius * 9/5 + 32
-      const timeStamp = forecast.dt_txt
-      const dateObj = new Date(timeStamp)
-      const month = dateObj.getMonth()
-      const day = dateObj.getDate()
-      const date = `${month}/${day}`
-      const hour = dateObj.getHours()
-      return {
-        date,
-        hour,
-        temp: fahrenheit,
-        main: forecast.weather[0].main,
-        description: forecast.weather[0].description,
-        icon: forecast.weather[0].icon,
-        cloudCover: forecast.clouds,
-        windSpeed: forecast.wind.speed
-      }
-    })
+  const getForecasts = (rawList) => rawList.map(getWeatherInfo)
+
+  const getWeatherInfo = (weatherObj) => {
+    const celsius = weatherObj.main.temp - 273.14
+    const fahrenheit = celsius * 9/5 + 32
+    const timeStamp = weatherObj.dt_txt
+    const dateObj = new Date(timeStamp)
+    const month = dateObj.getMonth()
+    const day = dateObj.getDate()
+    const date = `${month}/${day}`
+    const hour = dateObj.getHours()
+    return {
+      date,
+      hour,
+      temp: fahrenheit,
+      main: weatherObj.weather[0].main,
+      description: weatherObj.weather[0].description,
+      icon: weatherObj.weather[0].icon,
+      cloudCover: weatherObj.clouds,
+      windSpeed: weatherObj.wind.speed
+    }
   }
 
   let cityName
