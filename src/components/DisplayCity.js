@@ -4,20 +4,41 @@ import Grid from '@material-ui/core/Grid'
 
 import DisplayForecast from './DisplayForecast'
 
-const OPEN_WEATHER_PATH = 'https://api.openweathermap.org/data/2.5/forecast'
+const OPEN_WEATHER_PATH = 'https://api.openweathermap.org/data/2.5/'
 const WEATHER_API_KEY = '85605c622914f5dad8bccbb102c2769c'
 
 const DisplayCity = (props) => {
   const { name, coords } = props
   const [cityInfo, setCityInfo] = useState(null)
+  const [cityForecast, setCityForecast] = useState(null)
   const [cityWeather, setCityWeather] = useState(null)
 
   useEffect(() => {
     fetchWeather(coords)
+    fetchForecast(coords)
   }, [])
 
   const fetchWeather = (coords) => {
-    fetch(`${OPEN_WEATHER_PATH}?lat=${coords[0]}&lon=${coords[1]}&appid=${WEATHER_API_KEY}`)
+    fetch(`${OPEN_WEATHER_PATH}weather?lat=${coords[0]}&lon=${coords[1]}&appid=${WEATHER_API_KEY}`)
+    .then(response => {
+      if (response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`
+        let error = new Error(errorMessage)
+        throw(error)
+      }
+    })
+    .then(response => response.json())
+    .then(responseJson => {
+      console.log(responseJson)
+    })
+    .catch((error) => console.error(`Error in fetch: ${error.message}`))
+
+  }
+
+  const fetchForecast = (coords) => {
+    fetch(`${OPEN_WEATHER_PATH}forecast?lat=${coords[0]}&lon=${coords[1]}&appid=${WEATHER_API_KEY}`)
     .then(response => {
       if (response.ok) {
         return response
@@ -31,7 +52,7 @@ const DisplayCity = (props) => {
     .then(responseJson => {
       setCityInfo(responseJson.city)
       const forecasts = getForecasts(responseJson.list)
-      setCityWeather(forecasts)
+      setCityForecast(forecasts)
       console.log(forecasts)
     })
     .catch((error) => console.error(`Error in fetch: ${error.message}`))
@@ -65,8 +86,8 @@ const DisplayCity = (props) => {
   if (cityInfo) {
     cityName = cityInfo.name
   }
-  if (cityWeather) {
-    cityForecasts = cityWeather
+  if (cityForecast) {
+    cityForecasts = cityForecast
     .slice(0,6)
     .map((forecast, index) => {
       return (
