@@ -54,7 +54,7 @@ const DisplayCity = (props) => {
       setCityInfo(responseJson.city)
       const forecasts = getForecasts(responseJson.list)
       setCityForecast(forecasts)
-      console.log(forecasts)
+      console.log(responseJson)
     })
     .catch((error) => console.error(`Error in fetch: ${error.message}`))
   }
@@ -62,9 +62,10 @@ const DisplayCity = (props) => {
   const getForecasts = (rawList) => rawList.map(getWeatherInfo)
 
   const getWeatherInfo = (weatherObj) => {
+    const isCurrent = !weatherObj.dt_txt
     const celsius = weatherObj.main.temp - 273.14
     const fahrenheit = celsius * 9/5 + 32
-    const timeStamp = weatherObj.dt_txt
+    const timeStamp = !isCurrent ? weatherObj.dt_txt : weatherObj.dt * 1000
     const dateObj = new Date(timeStamp)
     const month = dateObj.getMonth()
     const day = dateObj.getDate()
@@ -83,12 +84,12 @@ const DisplayCity = (props) => {
   }
 
   let cityName
-  let cityForecasts
+  let cityTiles
   if (cityInfo) {
     cityName = cityInfo.name
   }
-  if (cityForecast) {
-    cityForecasts = cityForecast
+  if (cityWeather && cityForecast) {
+    cityTiles = [cityWeather, ...cityForecast]
     .slice(0,6)
     .map((forecast, index) => {
       return (
@@ -103,7 +104,7 @@ const DisplayCity = (props) => {
     <li className="display-city">
       <h1 className="city-name">{cityName}</h1>
       <Grid container spacing={1}>
-      {cityForecasts}
+      {cityTiles}
       </Grid>
     </li>
   )
