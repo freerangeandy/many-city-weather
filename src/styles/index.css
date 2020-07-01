@@ -45,7 +45,7 @@ body {
   color: #4A4A4A;
 }
 
-.forecast-tile {
+.weather-info-tile {
   border: 0.2rem solid #EAEFF2;
   border-radius: 0.4rem;
   background-color: #EAEFF2;
@@ -53,11 +53,11 @@ body {
   color: #4A4A4A;
 }
 
-.forecast-tile h3 {
+.weather-info-tile h3 {
   margin: 1rem 0;
 }
 
-.forecast-tile h2 {
+.weather-info-tile h2 {
   margin: 1rem 0;
 }
 

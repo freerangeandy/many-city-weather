@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 
-import DisplayForecast from './DisplayForecast'
+import DisplayWeather from './DisplayWeather'
 
 const OPEN_WEATHER_PATH = 'https://api.openweathermap.org/data/2.5/'
 const WEATHER_API_KEY = '85605c622914f5dad8bccbb102c2769c'
@@ -91,10 +91,10 @@ const DisplayCity = (props) => {
   if (cityWeather && cityForecast) {
     cityTiles = [cityWeather, ...cityForecast]
     .slice(0,6)
-    .map((forecast, index) => {
+    .map((weatherInfo, index) => {
       return (
         <Grid item xs={2} key={index}>
-          <DisplayForecast forecast={forecast} />
+          <DisplayWeather weatherInfo={weatherInfo} />
         </Grid>
       )
     })
