@@ -65,7 +65,7 @@ const DisplayCity = (props) => {
 
   const getWeatherInfo = (weatherObj) => {
     const isCurrent = !weatherObj.dt_txt
-    const celsius = weatherObj.main ? weatherObj.main.temp - 273.14 : weatherObj.temp
+    const celsius = weatherObj.main ? weatherObj.main.temp - 273.14 : weatherObj.temp - 273.14
     const fahrenheit = celsius * 9/5 + 32
     const timeStamp = !isCurrent ? weatherObj.dt_txt : weatherObj.dt * 1000
     const dateObj = new Date(timeStamp)
