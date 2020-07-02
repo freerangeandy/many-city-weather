@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Grid from '@material-ui/core/Grid'
 
 import DisplayWeather from './DisplayWeather'
+import { kelvinToFahrenheit } from '../shared/utility'
 
 const OPEN_WEATHER_PATH = 'https://api.openweathermap.org/data/2.5/'
 const EXCLUSIONS = `&exclude=current,minutely,daily`
@@ -29,7 +30,6 @@ const DisplayCity = (props) => {
     })
     .then(response => response.json())
     .then(responseJson => {
-      console.log(responseJson)
       const forecasts = getForecasts(responseJson.hourly)
       setCityForecast(forecasts)
     })
@@ -37,10 +37,8 @@ const DisplayCity = (props) => {
   }
 
   const getForecasts = (rawList) => rawList.map(getWeatherInfo)
-
   const getWeatherInfo = (weatherObj) => {
-    const celsius = weatherObj.temp - 273.14
-    const fahrenheit = celsius * 9/5 + 32
+    const fahrenheit = kelvinToFahrenheit(weatherObj.temp)
     const timeStamp = weatherObj.dt * 1000
     const dateObj = new Date(timeStamp)
     const month = dateObj.getMonth()

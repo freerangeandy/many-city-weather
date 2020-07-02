@@ -1,39 +1,18 @@
 import React from 'react'
 import Avatar from '@material-ui/core/Avatar';
 
+import {
+  getDisplayHour,
+  getHourClass,
+  getIcon
+} from '../shared/utility'
+
 const DisplayWeather = (props) => {
   const { weatherInfo } = props
 
-  const getDisplayHour = (hour) => {
-    if (hour === 0) {
-      return "12am"
-    } else if (hour > 12 ){
-      const newHour = hour - 12
-      return `${newHour}pm`
-    } else {
-      return `${hour}am`
-    }
-  }
-
-  const isNight = (hour) => (hour >= 21 || hour < 6)
-
-  const getClass = (hour) => {
-    return isNight(hour) ? "night-bg" : "day-bg"
-  }
-
-  const getIcon = (hour, icon) => {
-    let newIcon
-    if (isNight(hour)) {
-      newIcon = icon.replace('d', 'n')
-    } else {
-      newIcon = icon.replace('n', 'd')
-    }
-    return newIcon
-  }
-
   const adjustedIcon = getIcon(weatherInfo.hour, weatherInfo.icon)
   const iconSrc = `http://openweathermap.org/img/wn/${adjustedIcon}@2x.png`
-  const hourClass = getClass(weatherInfo.hour)
+  const hourClass = getHourClass(weatherInfo.hour)
 
   return (
     <div className="weather-info-tile">
