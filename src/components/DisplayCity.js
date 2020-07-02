@@ -9,7 +9,6 @@ const WEATHER_API_KEY = '85605c622914f5dad8bccbb102c2769c'
 
 const DisplayCity = (props) => {
   const { name, coords } = props
-  const [cityName, setCityName] = useState(null)
   const [cityForecast, setCityForecast] = useState(null)
   const [cityWeather, setCityWeather] = useState(null)
 
@@ -32,7 +31,6 @@ const DisplayCity = (props) => {
     .then(response => response.json())
     .then(responseJson => {
       const currentWeather = getWeatherInfo(responseJson)
-      setCityName(responseJson.name)
       setCityWeather(currentWeather)
       console.log(responseJson)
     })
@@ -86,7 +84,7 @@ const DisplayCity = (props) => {
   }
 
   let cityTiles
-  if (cityName && cityWeather && cityForecast) {
+  if (cityWeather && cityForecast) {
     cityTiles = [cityWeather, ...cityForecast]
     .slice(1,7)
     .map((weatherInfo, index) => {
@@ -100,7 +98,7 @@ const DisplayCity = (props) => {
 
   return (
     <li className="display-city">
-      <h1 className="city-name">{cityName}</h1>
+      <h1 className="city-name">{name}</h1>
       <Grid container spacing={1}>
       {cityTiles}
       </Grid>
