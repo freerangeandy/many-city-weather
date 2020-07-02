@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 
 import DisplayWeather from './DisplayWeather'
 
 const OPEN_WEATHER_PATH = 'https://api.openweathermap.org/data/2.5/'
+const EXCLUSIONS = `&exclude=current,minutely,daily`
 const WEATHER_API_KEY = '85605c622914f5dad8bccbb102c2769c'
 
 const DisplayCity = (props) => {
@@ -17,8 +17,7 @@ const DisplayCity = (props) => {
 
   const fetchForecast = (coords) => {
     const coordParams = `lat=${coords[0]}&lon=${coords[1]}`
-    const exclusions = `&exclude=current,minutely,daily`
-    fetch(`${OPEN_WEATHER_PATH}onecall?${coordParams}${exclusions}&appid=${WEATHER_API_KEY}`)
+    fetch(`${OPEN_WEATHER_PATH}onecall?${coordParams}${EXCLUSIONS}&appid=${WEATHER_API_KEY}`)
     .then(response => {
       if (response.ok) {
         return response
