@@ -9,7 +9,7 @@ const WEATHER_API_KEY = '85605c622914f5dad8bccbb102c2769c'
 
 const DisplayCity = (props) => {
   const { name, coords } = props
-  const [cityInfo, setCityInfo] = useState(null)
+  const [cityName, setCityName] = useState(null)
   const [cityForecast, setCityForecast] = useState(null)
   const [cityWeather, setCityWeather] = useState(null)
 
@@ -32,6 +32,7 @@ const DisplayCity = (props) => {
     .then(response => response.json())
     .then(responseJson => {
       const currentWeather = getWeatherInfo(responseJson)
+      setCityName(responseJson.name)
       setCityWeather(currentWeather)
       console.log(responseJson)
     })
@@ -51,7 +52,6 @@ const DisplayCity = (props) => {
     })
     .then(response => response.json())
     .then(responseJson => {
-      setCityInfo(responseJson.city)
       const forecasts = getForecasts(responseJson.list)
       setCityForecast(forecasts)
       console.log(responseJson)
@@ -83,12 +83,8 @@ const DisplayCity = (props) => {
     }
   }
 
-  let cityName
   let cityTiles
-  if (cityInfo) {
-    cityName = cityInfo.name
-  }
-  if (cityWeather && cityForecast) {
+  if (cityName && cityWeather && cityForecast) {
     cityTiles = [cityWeather, ...cityForecast]
     .slice(0,6)
     .map((weatherInfo, index) => {
