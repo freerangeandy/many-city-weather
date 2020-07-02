@@ -40,7 +40,9 @@ const DisplayCity = (props) => {
   }
 
   const fetchForecast = (coords) => {
-    fetch(`${OPEN_WEATHER_PATH}forecast?lat=${coords[0]}&lon=${coords[1]}&appid=${WEATHER_API_KEY}`)
+    const coordParams = `lat=${coords[0]}&lon=${coords[1]}`
+    const exclusions = `&exclude=current,minutely,daily`
+    fetch(`${OPEN_WEATHER_PATH}onecall?${coordParams}${exclusions}&appid=${WEATHER_API_KEY}`)
     .then(response => {
       if (response.ok) {
         return response
@@ -52,9 +54,9 @@ const DisplayCity = (props) => {
     })
     .then(response => response.json())
     .then(responseJson => {
-      const forecasts = getForecasts(responseJson.list)
-      setCityForecast(forecasts)
       console.log(responseJson)
+      const forecasts = getForecasts(responseJson.hourly)
+      setCityForecast(forecasts)
     })
     .catch((error) => console.error(`Error in fetch: ${error.message}`))
   }
@@ -63,7 +65,7 @@ const DisplayCity = (props) => {
 
   const getWeatherInfo = (weatherObj) => {
     const isCurrent = !weatherObj.dt_txt
-    const celsius = weatherObj.main.temp - 273.14
+    const celsius = weatherObj.main ? weatherObj.main.temp - 273.14 : weatherObj.temp
     const fahrenheit = celsius * 9/5 + 32
     const timeStamp = !isCurrent ? weatherObj.dt_txt : weatherObj.dt * 1000
     const dateObj = new Date(timeStamp)
@@ -79,14 +81,14 @@ const DisplayCity = (props) => {
       description: weatherObj.weather[0].description,
       icon: weatherObj.weather[0].icon,
       cloudCover: weatherObj.clouds,
-      windSpeed: weatherObj.wind.speed
+      windSpeed: weatherObj.wind_speed
     }
   }
 
   let cityTiles
   if (cityName && cityWeather && cityForecast) {
     cityTiles = [cityWeather, ...cityForecast]
-    .slice(0,6)
+    .slice(1,7)
     .map((weatherInfo, index) => {
       return (
         <Grid item xs={2} key={index}>
