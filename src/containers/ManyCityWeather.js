@@ -1,0 +1,61 @@
+import React, { Fragment, useState } from 'react';
+
+import CitySearchPane from '../components/CitySearch/CitySearchPane'
+import CityDisplayPane from '../components/CityDisplay/CityDisplayPane'
+import { getForecasts } from '../shared/utility'
+
+const OPEN_WEATHER_PATH = 'https://api.openweathermap.org/data/2.5/'
+const EXCLUSIONS = `&exclude=current,minutely,daily`
+const WEATHER_API_KEY = '85605c622914f5dad8bccbb102c2769c'
+
+const ManyCityWeather = (props) => {
+  const [selectedCity, setSelectedCity] = useState(null)
+  const [cityList, setCityList] = useState([])
+
+  const addCityDisplay = () => {
+    if (selectedCity !== null) {
+      fetchForecast(selectedCity)
+      setSelectedCity(null)
+    }
+  }
+
+  const suggestionSelect = (result, lat, lng, text) => {
+    const coords = [lat, lng]
+    const cityObj = { name: result, coords: coords, forecasts: null }
+    setSelectedCity(cityObj)
+  }
+
+  const fetchForecast = (city) => {
+    const coordParams = `lat=${city.coords[0]}&lon=${city.coords[1]}`
+    fetch(`${OPEN_WEATHER_PATH}onecall?${coordParams}${EXCLUSIONS}&appid=${WEATHER_API_KEY}`)
+    .then(response => {
+      if (response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`
+        let error = new Error(errorMessage)
+        throw(error)
+      }
+    })
+    .then(response => response.json())
+    .then(responseJson => {
+      const forecasts = getForecasts(responseJson.hourly)
+      const newCityList = [...cityList, { ...city, forecasts }]
+      setCityList(newCityList)
+    })
+    .catch((error) => console.error(`Error in fetch: ${error.message}`))
+  }
+
+  return (
+    <>
+      <h1 className="page-title">How's the weather over there?</h1>
+      <CitySearchPane
+        suggestionSelect={suggestionSelect}
+        addCityDisplay={addCityDisplay}
+      />
+      <CityDisplayPane cityList={cityList} />
+    </>
+  )
+}
+
+export default ManyCityWeather;
