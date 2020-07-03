@@ -1,6 +1,6 @@
 import React from 'react'
 
-import DisplayCity from '../components/DisplayCity'
+import DisplayCity from './DisplayCity'
 
 const DisplayContainer = (props) => {
   const { cityList } = props

@@ -1,7 +1,7 @@
 import React from 'react'
 import Avatar from '@material-ui/core/Avatar';
 
-import { getDisplayHour, getHourClass, getIcon } from '../shared/utility'
+import { getDisplayHour, getHourClass, getIcon } from '../../shared/utility'
 
 const DisplayWeather = (props) => {
   const { weatherInfo } = props

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
-import InputContainer from './InputContainer'
-import DisplayContainer from './DisplayContainer'
+import InputContainer from '../components/CitySearch/InputContainer'
+import DisplayContainer from '../components/CityDisplay/DisplayContainer'
 import { kelvinToFahrenheit } from '../shared/utility'
 
 const OPEN_WEATHER_PATH = 'https://api.openweathermap.org/data/2.5/'
