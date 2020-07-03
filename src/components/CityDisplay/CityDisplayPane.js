@@ -1,13 +1,13 @@
 import React from 'react'
 
-import DisplayCity from './DisplayCity'
+import CityWeather from './CityWeather'
 
-const DisplayContainer = (props) => {
+const CityDisplayPane = (props) => {
   const { cityList } = props
 
   let displayList = cityList.map(({ name, coords, forecasts }, index) => {
     return (
-      <DisplayCity
+      <CityWeather
         key={index}
         name={name}
         coords={coords}
@@ -24,4 +24,4 @@ const DisplayContainer = (props) => {
   )
 }
 
-export default DisplayContainer
+export default CityDisplayPane

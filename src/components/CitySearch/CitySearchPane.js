@@ -3,8 +3,8 @@ import MapboxAutocomplete from 'react-mapbox-autocomplete'
 import Button from '@material-ui/core/Button'
 import Icon from '@material-ui/core/Icon'
 
-const InputContainer = (props) => {
-  const { setSelectedCity, suggestionSelect, clickHandler } = props
+const CitySearchPane = (props) => {
+  const { suggestionSelect, clickHandler } = props
 
   return (
     <div className="add-city">
@@ -25,4 +25,4 @@ const InputContainer = (props) => {
   )
 }
 
-export default InputContainer
+export default CitySearchPane

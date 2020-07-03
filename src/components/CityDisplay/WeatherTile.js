@@ -3,7 +3,7 @@ import Avatar from '@material-ui/core/Avatar';
 
 import { getDisplayHour, getHourClass, getIcon } from '../../shared/utility'
 
-const DisplayWeather = (props) => {
+const WeatherTile = (props) => {
   const { weatherInfo } = props
 
   const adjustedIcon = getIcon(weatherInfo.hour, weatherInfo.icon)
@@ -32,4 +32,4 @@ const DisplayWeather = (props) => {
 
 }
 
-export default DisplayWeather
+export default WeatherTile

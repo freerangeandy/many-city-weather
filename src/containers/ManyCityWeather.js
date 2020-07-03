@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
-import InputContainer from '../components/CitySearch/InputContainer'
-import DisplayContainer from '../components/CityDisplay/DisplayContainer'
+import CitySearchPane from '../components/CitySearch/CitySearchPane'
+import CityDisplayPane from '../components/CityDisplay/CityDisplayPane'
 import { kelvinToFahrenheit } from '../shared/utility'
 
 const OPEN_WEATHER_PATH = 'https://api.openweathermap.org/data/2.5/'
@@ -70,11 +70,11 @@ const ManyCityWeather = props => {
   return (
     <div className="App">
       <h1 className="page-title">How's the weather over there?</h1>
-      <InputContainer
+      <CitySearchPane
         suggestionSelect={suggestionSelect}
         clickHandler={addCityDisplay}
       />
-      <DisplayContainer cityList={cityList} />
+      <CityDisplayPane cityList={cityList} />
     </div>
   )
 }

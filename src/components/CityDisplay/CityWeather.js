@@ -1,9 +1,9 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid'
 
-import DisplayWeather from './DisplayWeather'
+import WeatherTile from './WeatherTile'
 
-const DisplayCity = (props) => {
+const CityWeather = (props) => {
   const { name, forecasts } = props
 
   let cityTiles = forecasts
@@ -11,7 +11,7 @@ const DisplayCity = (props) => {
     .map((weatherInfo, index) => {
       return (
         <Grid item xs={2} key={index}>
-          <DisplayWeather weatherInfo={weatherInfo} />
+          <WeatherTile weatherInfo={weatherInfo} />
         </Grid>
       )
     })
@@ -26,4 +26,4 @@ const DisplayCity = (props) => {
   )
 }
 
-export default DisplayCity
+export default CityWeather
