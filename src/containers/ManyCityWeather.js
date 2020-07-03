@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, { Fragment, useState } from 'react';
 
 import CitySearchPane from '../components/CitySearch/CitySearchPane'
 import CityDisplayPane from '../components/CityDisplay/CityDisplayPane'
@@ -8,7 +8,7 @@ const OPEN_WEATHER_PATH = 'https://api.openweathermap.org/data/2.5/'
 const EXCLUSIONS = `&exclude=current,minutely,daily`
 const WEATHER_API_KEY = '85605c622914f5dad8bccbb102c2769c'
 
-const ManyCityWeather = props => {
+const ManyCityWeather = (props) => {
   const [selectedCity, setSelectedCity] = useState(null)
   const [cityList, setCityList] = useState([])
 
@@ -51,7 +51,7 @@ const ManyCityWeather = props => {
       <h1 className="page-title">How's the weather over there?</h1>
       <CitySearchPane
         suggestionSelect={suggestionSelect}
-        clickHandler={addCityDisplay}
+        addCityDisplay={addCityDisplay}
       />
       <CityDisplayPane cityList={cityList} />
     </>

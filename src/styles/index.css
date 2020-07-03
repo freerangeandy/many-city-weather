@@ -33,7 +33,15 @@ body {
   margin-right: 0.5rem;
 }
 
-.display-city {
+.city-display {
+  padding: 0 3%;
+}
+
+.city-display ul {
+  padding: 0;
+}
+
+.city-weather {
   list-style: none;
   background-color: #FFD392;
   padding: 0 0.4rem 0.4rem 0.4rem;

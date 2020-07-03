@@ -17,7 +17,7 @@ const CityWeather = (props) => {
     })
 
   return (
-    <li className="display-city">
+    <li className="city-weather">
       <h1 className="city-name">{name}</h1>
       <Grid container spacing={1}>
         {cityTiles}

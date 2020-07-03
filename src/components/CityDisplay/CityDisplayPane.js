@@ -5,18 +5,17 @@ import CityWeather from './CityWeather'
 const CityDisplayPane = (props) => {
   const { cityList } = props
 
-  let displayList = cityList.map(({ name, coords, forecasts }, index) => {
+  let displayList = cityList.map(({ name, forecasts }, index) => {
     return (
       <CityWeather
         key={index}
         name={name}
-        coords={coords}
         forecasts={forecasts}
       />)
   })
 
   return (
-    <div>
+    <div className="city-display">
       <ul>
         {displayList}
       </ul>
