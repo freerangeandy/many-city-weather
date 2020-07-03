@@ -30,9 +30,30 @@ const kelvinToFahrenheit = (kelvin) => {
   return celsius * 9/5 + 32
 }
 
+const getForecasts = (rawList) => rawList.map(getWeatherInfo)
+const getWeatherInfo = (weatherObj) => {
+  const fahrenheit = kelvinToFahrenheit(weatherObj.temp)
+  const timeStamp = weatherObj.dt * 1000
+  const dateObj = new Date(timeStamp)
+  const month = dateObj.getMonth()
+  const day = dateObj.getDate()
+  const date = `${month}/${day}`
+  const hour = dateObj.getHours()
+  return {
+    date,
+    hour,
+    temp: fahrenheit,
+    main: weatherObj.weather[0].main,
+    description: weatherObj.weather[0].description,
+    icon: weatherObj.weather[0].icon,
+    cloudCover: weatherObj.clouds,
+    windSpeed: weatherObj.wind_speed
+  }
+}
+
 export {
   getDisplayHour,
   getHourClass,
   getIcon,
-  kelvinToFahrenheit
+  getForecasts
 }
