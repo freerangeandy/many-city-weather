@@ -5,8 +5,14 @@ import DisplayCity from '../components/DisplayCity'
 const DisplayContainer = (props) => {
   const { cityList } = props
 
-  let displayList = cityList.map(({ name, coords }, index) => {
-    return <DisplayCity key={index} name={name} coords={coords} />
+  let displayList = cityList.map(({ name, coords, forecasts }, index) => {
+    return (
+      <DisplayCity
+        key={index}
+        name={name}
+        coords={coords}
+        forecasts={forecasts}
+      />)
   })
 
   return (

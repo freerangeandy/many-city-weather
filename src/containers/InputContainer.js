@@ -4,13 +4,7 @@ import Button from '@material-ui/core/Button'
 import Icon from '@material-ui/core/Icon'
 
 const InputContainer = (props) => {
-  const { setSelectedCity, clickHandler } = props
-
-  const suggestionSelect = (result, lat, lng, text) => {
-    const coords = [lat, lng]
-    const cityObj = { name: result, coords: coords }
-    setSelectedCity(cityObj)
-  }
+  const { setSelectedCity, suggestionSelect, clickHandler } = props
 
   return (
     <div className="add-city">
