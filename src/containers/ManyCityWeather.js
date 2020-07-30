@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useRef } from 'react';
 
 import CitySearchPane from '../components/CitySearch/CitySearchPane'
 import CityDisplayPane from '../components/CityDisplay/CityDisplayPane'
@@ -11,11 +11,13 @@ const WEATHER_API_KEY = '85605c622914f5dad8bccbb102c2769c'
 const ManyCityWeather = (props) => {
   const [selectedCity, setSelectedCity] = useState(null)
   const [cityList, setCityList] = useState([])
+  const searchFieldRef = useRef(null)
 
   const addCityDisplay = () => {
     if (selectedCity !== null) {
       fetchForecast(selectedCity)
       setSelectedCity(null)
+      searchFieldRef.current.state.query = ""
     }
   }
 
@@ -46,14 +48,20 @@ const ManyCityWeather = (props) => {
     .catch((error) => console.error(`Error in fetch: ${error.message}`))
   }
 
+  const cityDeleteHandler = (cityIndex) => () => {
+    const newCityList = [...cityList.slice(0, cityIndex), ...cityList.slice(cityIndex + 1)]
+    setCityList(newCityList)
+  }
+
   return (
     <>
       <h1 className="page-title">How's the weather over there?</h1>
       <CitySearchPane
         suggestionSelect={suggestionSelect}
         addCityDisplay={addCityDisplay}
+        searchFieldRef={searchFieldRef}
       />
-      <CityDisplayPane cityList={cityList} />
+      <CityDisplayPane cityList={cityList} deleteHandler={cityDeleteHandler}/>
     </>
   )
 }

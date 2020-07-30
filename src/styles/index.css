@@ -44,6 +44,7 @@ body {
 .city-weather {
   list-style: none;
   background-color: #FFD392;
+  margin: 0.5rem 0 0 0;
   padding: 0 0.4rem 0.4rem 0.4rem;
   border-radius: 0.4rem;
 }
@@ -51,6 +52,22 @@ body {
 .city-name {
   padding-top: 1rem;
   color: #4A4A4A;
+  flex-grow: 1;
+}
+
+.city-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-button {
+  margin: 0.5rem;
+  color: #4A4A4A;
+}
+
+.delete-button:hover {
+  color: #EAEFF2;
+  cursor: pointer;
 }
 
 .weather-info-tile {
