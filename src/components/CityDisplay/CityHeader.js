@@ -7,7 +7,7 @@ const CityHeader = props => {
   return (
     <div className="city-header">
       <div className="city-name"><h1>{props.name}</h1></div>
-      <div><FontAwesomeIcon icon={ faTimes } /></div>
+      <div><FontAwesomeIcon onClick={props.deleteHandler} icon={ faTimes } /></div>
     </div>
   )
 }

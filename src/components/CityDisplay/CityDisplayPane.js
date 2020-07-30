@@ -3,7 +3,7 @@ import React from 'react'
 import CityWeather from './CityWeather'
 
 const CityDisplayPane = (props) => {
-  const { cityList } = props
+  const { cityList, deleteHandler } = props
 
   let displayList = cityList.map(({ name, forecasts }, index) => {
     return (
@@ -11,6 +11,7 @@ const CityDisplayPane = (props) => {
         key={index}
         name={name}
         forecasts={forecasts}
+        deleteHandler={deleteHandler(index)}
       />)
   })
 

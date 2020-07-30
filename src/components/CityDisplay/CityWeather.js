@@ -5,7 +5,7 @@ import WeatherTile from './WeatherTile'
 import CityHeader from './CityHeader'
 
 const CityWeather = (props) => {
-  const { name, forecasts } = props
+  const { name, forecasts, deleteHandler } = props
 
   let cityTiles = forecasts
     .slice(0,6)
@@ -19,7 +19,7 @@ const CityWeather = (props) => {
 
   return (
     <li className="city-weather">
-      <CityHeader name={name} />
+      <CityHeader name={name} deleteHandler={deleteHandler} />
       <Grid container spacing={1}>
         {cityTiles}
       </Grid>

@@ -46,6 +46,11 @@ const ManyCityWeather = (props) => {
     .catch((error) => console.error(`Error in fetch: ${error.message}`))
   }
 
+  const cityDeleteHandler = (cityIndex) => () => {
+    const newCityList = [...cityList.slice(0, cityIndex), ...cityList.slice(cityIndex + 1)]
+    setCityList(newCityList)
+  }
+
   return (
     <>
       <h1 className="page-title">How's the weather over there?</h1>
@@ -53,7 +58,7 @@ const ManyCityWeather = (props) => {
         suggestionSelect={suggestionSelect}
         addCityDisplay={addCityDisplay}
       />
-      <CityDisplayPane cityList={cityList} />
+      <CityDisplayPane cityList={cityList} deleteHandler={cityDeleteHandler}/>
     </>
   )
 }
