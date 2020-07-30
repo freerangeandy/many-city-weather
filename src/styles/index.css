@@ -59,6 +59,16 @@ body {
   justify-content: space-between;
 }
 
+.delete-button {
+  margin: 0.5rem;
+  color: #4A4A4A;
+}
+
+.delete-button:hover {
+  color: #EAEFF2;
+  cursor: pointer;
+}
+
 .weather-info-tile {
   border: 0.2rem solid #EAEFF2;
   border-radius: 0.4rem;
