@@ -2,6 +2,7 @@ import React from 'react'
 import Grid from '@material-ui/core/Grid'
 
 import WeatherTile from './WeatherTile'
+import CityHeader from './CityHeader'
 
 const CityWeather = (props) => {
   const { name, forecasts } = props
@@ -18,7 +19,7 @@ const CityWeather = (props) => {
 
   return (
     <li className="city-weather">
-      <h1 className="city-name">{name}</h1>
+      <CityHeader name={name} />
       <Grid container spacing={1}>
         {cityTiles}
       </Grid>
