@@ -51,6 +51,12 @@ body {
 .city-name {
   padding-top: 1rem;
   color: #4A4A4A;
+  flex-grow: 1;
+}
+
+.city-header {
+  display: flex;
+  justify-content: space-between;
 }
 
 .weather-info-tile {

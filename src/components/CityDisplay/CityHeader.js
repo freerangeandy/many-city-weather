@@ -3,7 +3,10 @@ import React from 'react'
 const CityHeader = props => {
 
   return (
-    <h1 className="city-name">{props.name}</h1>
+    <div className="city-header">
+      <div className="city-name"><h1>{props.name}</h1></div>
+      <div>X</div>
+    </div>
   )
 }
 
