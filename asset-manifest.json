@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/many-city-weather/static/css/main.365a82c0.chunk.css",
-    "main.js": "/many-city-weather/static/js/main.07fd5c15.chunk.js",
-    "main.js.map": "/many-city-weather/static/js/main.07fd5c15.chunk.js.map",
-    "runtime-main.js": "/many-city-weather/static/js/runtime-main.888f233b.js",
-    "runtime-main.js.map": "/many-city-weather/static/js/runtime-main.888f233b.js.map",
+    "main.css": "/many-city-weather/static/css/main.9dcf29b3.chunk.css",
+    "main.js": "/many-city-weather/static/js/main.ca5f2745.chunk.js",
+    "main.js.map": "/many-city-weather/static/js/main.ca5f2745.chunk.js.map",
+    "runtime-main.js": "/many-city-weather/static/js/runtime-main.cb735a60.js",
+    "runtime-main.js.map": "/many-city-weather/static/js/runtime-main.cb735a60.js.map",
     "static/css/2.17bfc966.chunk.css": "/many-city-weather/static/css/2.17bfc966.chunk.css",
-    "static/js/2.8fc54ec3.chunk.js": "/many-city-weather/static/js/2.8fc54ec3.chunk.js",
-    "static/js/2.8fc54ec3.chunk.js.map": "/many-city-weather/static/js/2.8fc54ec3.chunk.js.map",
+    "static/js/2.e5fd952b.chunk.js": "/many-city-weather/static/js/2.e5fd952b.chunk.js",
+    "static/js/2.e5fd952b.chunk.js.map": "/many-city-weather/static/js/2.e5fd952b.chunk.js.map",
     "index.html": "/many-city-weather/index.html",
-    "precache-manifest.220667183a47cac819e024bebf08ede0.js": "/many-city-weather/precache-manifest.220667183a47cac819e024bebf08ede0.js",
+    "precache-manifest.c2a7f80606165936daf4a8aa14d844c9.js": "/many-city-weather/precache-manifest.c2a7f80606165936daf4a8aa14d844c9.js",
     "service-worker.js": "/many-city-weather/service-worker.js",
     "static/css/2.17bfc966.chunk.css.map": "/many-city-weather/static/css/2.17bfc966.chunk.css.map",
-    "static/css/main.365a82c0.chunk.css.map": "/many-city-weather/static/css/main.365a82c0.chunk.css.map",
-    "static/js/2.8fc54ec3.chunk.js.LICENSE.txt": "/many-city-weather/static/js/2.8fc54ec3.chunk.js.LICENSE.txt"
+    "static/css/main.9dcf29b3.chunk.css.map": "/many-city-weather/static/css/main.9dcf29b3.chunk.css.map",
+    "static/js/2.e5fd952b.chunk.js.LICENSE.txt": "/many-city-weather/static/js/2.e5fd952b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.888f233b.js",
+    "static/js/runtime-main.cb735a60.js",
     "static/css/2.17bfc966.chunk.css",
-    "static/js/2.8fc54ec3.chunk.js",
-    "static/css/main.365a82c0.chunk.css",
-    "static/js/main.07fd5c15.chunk.js"
+    "static/js/2.e5fd952b.chunk.js",
+    "static/css/main.9dcf29b3.chunk.css",
+    "static/js/main.ca5f2745.chunk.js"
   ]
 }
