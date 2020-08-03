@@ -81,6 +81,7 @@ body {
 .delete-button {
   margin: 0.5rem;
   color: #4A4A4A;
+  transition: color 0.15s ease-in-out;
 }
 
 .delete-button:hover {
