@@ -1,4 +1,5 @@
 import React from 'react'
+import  { CSSTransitionGroup } from 'react-transition-group'
 
 import CityWeather from './CityWeather'
 
@@ -18,7 +19,14 @@ const CityDisplayPane = (props) => {
   return (
     <div className="city-display">
       <ul>
+        <CSSTransitionGroup
+          transitionName="city-weather"
+          transitionEnterTimeout={250}
+          transitionLeaveTimeout={250}
+
+          >
         {displayList}
+        </CSSTransitionGroup>
       </ul>
     </div>
   )

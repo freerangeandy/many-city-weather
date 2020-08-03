@@ -47,17 +47,24 @@ body {
   margin: 0.5rem 0 0 0;
   padding: 0 0.4rem 0.4rem 0.4rem;
   border-radius: 0.4rem;
-  opacity: 1;
-  animation: fadeInOpacity 0.25s ease-in;
 }
 
-@keyframes fadeInOpacity {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+.city-weather-enter {
+  opacity: 0.01;
+}
+
+.city-weather-enter.city-weather-enter-active {
+  opacity: 1;
+  transition: opacity 0.25s ease-in;
+}
+
+.city-weather-leave {
+  opacity: 1;
+}
+
+.city-weather-leave.city-weather-leave-active {
+  opacity: 0.01;
+  transition: opacity 0.25s ease-in;
 }
 
 .city-name {
