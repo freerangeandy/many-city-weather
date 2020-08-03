@@ -49,6 +49,24 @@ body {
   border-radius: 0.4rem;
 }
 
+.city-weather-enter {
+  opacity: 0.01;
+}
+
+.city-weather-enter.city-weather-enter-active {
+  opacity: 1;
+  transition: opacity 0.25s ease-in;
+}
+
+.city-weather-exit {
+  opacity: 1;
+}
+
+.city-weather-exit.city-weather-exit-active {
+  opacity: 0.01;
+  transition: opacity 0.25s ease-in;
+}
+
 .city-name {
   padding-top: 1rem;
   color: #4A4A4A;
@@ -63,6 +81,7 @@ body {
 .delete-button {
   margin: 0.5rem;
   color: #4A4A4A;
+  transition: color 0.15s ease-in-out;
 }
 
 .delete-button:hover {

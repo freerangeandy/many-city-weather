@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 
 import CitySearchPane from '../components/CitySearch/CitySearchPane'
 import CityDisplayPane from '../components/CityDisplay/CityDisplayPane'
