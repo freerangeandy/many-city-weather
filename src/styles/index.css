@@ -58,11 +58,11 @@ body {
   transition: opacity 0.25s ease-in;
 }
 
-.city-weather-leave {
+.city-weather-exit {
   opacity: 1;
 }
 
-.city-weather-leave.city-weather-leave-active {
+.city-weather-exit.city-weather-exit-active {
   opacity: 0.01;
   transition: opacity 0.25s ease-in;
 }

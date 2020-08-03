@@ -1,5 +1,5 @@
 import React from 'react'
-import  { CSSTransitionGroup } from 'react-transition-group'
+import  { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 import CityWeather from './CityWeather'
 
@@ -8,25 +8,26 @@ const CityDisplayPane = (props) => {
 
   let displayList = cityList.map(({ name, forecasts }, index) => {
     return (
-      <CityWeather
+      <CSSTransition
         key={index}
-        name={name}
-        forecasts={forecasts}
-        deleteHandler={deleteHandler(index)}
-      />)
+        classNames="city-weather"
+        timeout={{ enter: 250, exit: 250}}
+      >
+        <CityWeather
+          name={name}
+          forecasts={forecasts}
+          deleteHandler={deleteHandler(index)}
+        />
+      </CSSTransition>
+    )
   })
 
   return (
     <div className="city-display">
       <ul>
-        <CSSTransitionGroup
-          transitionName="city-weather"
-          transitionEnterTimeout={250}
-          transitionLeaveTimeout={250}
-
-          >
-        {displayList}
-        </CSSTransitionGroup>
+        <TransitionGroup>
+          {displayList}
+        </TransitionGroup>
       </ul>
     </div>
   )
