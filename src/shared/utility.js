@@ -35,7 +35,7 @@ const getWeatherInfo = (weatherObj) => {
   const fahrenheit = kelvinToFahrenheit(weatherObj.temp)
   const timeStamp = weatherObj.dt * 1000
   const dateObj = new Date(timeStamp)
-  const month = dateObj.getMonth()
+  const month = dateObj.getMonth() + 1
   const day = dateObj.getDate()
   const date = `${month}/${day}`
   const hour = dateObj.getHours()
