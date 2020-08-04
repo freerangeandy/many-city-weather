@@ -1,68 +1,27 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Many City Weather
+This project was created as part of a Mintbean Careerhack (6/24) where the challenge was to make a web app that incorporates a weather forecast API.
 
-## Available Scripts
+## Setup Instructions
+This project is made using React.js with Node.js libraries, so after you clone this project to your desktop, you will need to install the requisite libraries. This is done by opening a terminal window, navigating to the root many-city-weather directory, and executing the following command:
 
-In the project directory, you can run:
+`yarn install`
 
-### `yarn start`
+To run the app in development mode, execute the following:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+`yarn start`
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Then open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `yarn test`
+## Usage
+To see the weather forecast (next 6 hours) for a particular location, begin typing the name of that location in the Search field, and wait for a dropdown to appear with autocompleted results. You must select a result from this dropdown - a location can't be specified solely through the text field.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+After selecting a search result, press the (+) Add Location button and a row of hourly forecasts for that location will appear. Since the Search field automatically clears out after a location is added, another location can then be searched for and have its forecast subsequently displayed below any existing forecasts.
 
-### `yarn build`
+To remove any location's forecasts from the visible list, click on the (x) delete button in the area's upper right corner.  
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Credits
+This project was built starting from a create-react-app template, [mintbean-challenge-react-starter](https://github.com/clairefro/mintbean-challenge-react-starter), developed by [Claire Froelich](https://github.com/clairefro).
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Real-time weather forecast data is provided by the [OpenWeather API](https://openweathermap.org/api/one-call-api).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+The Search field uses the [react-mapbox-autocomplete](https://github.com/localvore-today/react-mapbox-autocomplete) component developed by [Localvore.co](https://github.com/localvore-today).
