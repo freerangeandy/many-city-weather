@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fb20fa3b12645edb4b2a81cc45b5f6cd",
+    "revision": "94fb0436aab0951faef0d34876e7018e",
     "url": "/many-city-weather/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/many-city-weather/static/css/2.17bfc966.chunk.css"
   },
   {
-    "revision": "1fd055a67a8a5e256ee7",
+    "revision": "4a3913b841b144320489",
     "url": "/many-city-weather/static/css/main.c005a2f3.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/many-city-weather/static/js/2.a3d25b07.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1fd055a67a8a5e256ee7",
-    "url": "/many-city-weather/static/js/main.27eb495d.chunk.js"
+    "revision": "4a3913b841b144320489",
+    "url": "/many-city-weather/static/js/main.c5cec741.chunk.js"
   },
   {
     "revision": "c99dae4bcb33d45cd98a",
