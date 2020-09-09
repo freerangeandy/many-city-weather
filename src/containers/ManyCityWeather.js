@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 
 import CitySearchPane from '../components/CitySearch/CitySearchPane'
 import CityDisplayPane from '../components/CityDisplay/CityDisplayPane'
-import { getForecasts, getLocalHourOffset } from '../shared/utility'
+import { getForecasts } from '../shared/utility'
 
 const OPEN_WEATHER_PATH = 'https://api.openweathermap.org/data/2.5/'
 const EXCLUSIONS = `&exclude=current,minutely,daily`
@@ -41,9 +41,8 @@ const ManyCityWeather = (props) => {
     })
     .then(response => response.json())
     .then(responseJson => {
-      const forecasts = getForecasts(responseJson.hourly)
-      const hourOffset = getLocalHourOffset(responseJson.hourly[0], responseJson.timezone_offset)
-      const newCity = { ...city, ...hourOffset, showLocal: false, forecasts }
+      const forecasts = getForecasts(responseJson.hourly, responseJson.timezone_offset)
+      const newCity = { ...city, showLocal: false, forecasts }
       const newCityList = [...cityList, newCity]
       setCityList(newCityList)
     })

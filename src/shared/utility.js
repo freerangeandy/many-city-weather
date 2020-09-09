@@ -30,8 +30,8 @@ const kelvinToFahrenheit = (kelvin) => {
   return celsius * 9/5 + 32
 }
 
-const getForecasts = (rawList) => rawList.map(getWeatherInfo)
-const getWeatherInfo = (weatherObj) => {
+const getForecasts = (rawList, offset) => rawList.map(getWeatherInfo(offset))
+const getWeatherInfo = (localSecondsOffset) => (weatherObj) => {
   const fahrenheit = kelvinToFahrenheit(weatherObj.temp)
   const timeStamp = weatherObj.dt * 1000
   const dateObj = new Date(timeStamp)
@@ -39,9 +39,12 @@ const getWeatherInfo = (weatherObj) => {
   const day = dateObj.getDate()
   const date = `${month}/${day}`
   const hour = dateObj.getHours()
+  const systemSecondsOffset = dateObj.getTimezoneOffset() * 60
+  const localInfo = getLocalTime(timeStamp, systemSecondsOffset + localSecondsOffset)
   return {
     date,
     hour,
+    ...localInfo,
     temp: fahrenheit,
     main: weatherObj.weather[0].main,
     description: weatherObj.weather[0].description,
@@ -51,13 +54,17 @@ const getWeatherInfo = (weatherObj) => {
   }
 }
 
-const getLocalHourOffset = (weatherObj, timezoneOffset) => {
-  const timeStamp = weatherObj.dt * 1000
-  const dateObj = new Date(timeStamp)
-  const systemOffset = dateObj.getTimezoneOffset() / 60
-  const localOffset = -1 * timezoneOffset / (60 * 60)
+const getLocalTime = (timeStamp, secondsOffset) => {
+  const msOffset = secondsOffset * 1000
+  const localDateObj = new Date(timeStamp + msOffset)
+  const localMonth = localDateObj.getMonth() + 1
+  const localDay = localDateObj.getDate()
+  const localDate = `${localMonth}/${localDay}`
+  const localHour = localDateObj.getHours()
+
   return {
-    hourOffset: systemOffset - localOffset
+    localDate: localDate,
+    localHour: localHour
   }
 }
 
@@ -66,6 +73,5 @@ export {
   getDisplayHour,
   getHourClass,
   getIcon,
-  getForecasts,
-  getLocalHourOffset
+  getForecasts
 }
