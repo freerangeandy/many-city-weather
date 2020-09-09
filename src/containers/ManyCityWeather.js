@@ -43,7 +43,8 @@ const ManyCityWeather = (props) => {
     .then(responseJson => {
       const forecasts = getForecasts(responseJson.hourly)
       const hourOffset = getLocalHourOffset(responseJson.hourly[0], responseJson.timezone_offset)
-      const newCityList = [...cityList, { ...city, ...hourOffset, forecasts }]
+      const newCity = { ...city, ...hourOffset, showLocal: false, forecasts }
+      const newCityList = [...cityList, newCity]
       setCityList(newCityList)
     })
     .catch((error) => console.error(`Error in fetch: ${error.message}`))

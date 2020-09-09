@@ -5,14 +5,17 @@ import WeatherTile from './WeatherTile'
 import CityHeader from './CityHeader'
 
 const CityWeather = (props) => {
-  const { name, forecasts, deleteHandler } = props
+  const { name, forecasts, hourOffset, showLocal, deleteHandler } = props
 
   let cityTiles = forecasts
     .slice(0,6)
     .map((weatherInfo, index) => {
       return (
         <Grid item xs={2} key={index}>
-          <WeatherTile weatherInfo={weatherInfo} />
+          <WeatherTile
+            weatherInfo={weatherInfo}
+            hourOffset={hourOffset}
+            showLocal={showLocal} />
         </Grid>
       )
     })

@@ -4,12 +4,14 @@ import Avatar from '@material-ui/core/Avatar';
 import { getDisplayHour, getHourClass, getIcon } from '../../shared/utility'
 
 const WeatherTile = (props) => {
-  const { weatherInfo } = props
+  const { weatherInfo, hourOffset, showLocal } = props
 
   const adjustedIcon = getIcon(weatherInfo.hour, weatherInfo.icon)
   const iconSrc = `http://openweathermap.org/img/wn/${adjustedIcon}@2x.png`
   const hourClass = getHourClass(weatherInfo.hour)
 
+  console.log(hourOffset)
+  console.log(showLocal)
   return (
     <div className="weather-info-tile">
       <h3>
