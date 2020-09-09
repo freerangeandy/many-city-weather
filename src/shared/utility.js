@@ -54,12 +54,10 @@ const getWeatherInfo = (weatherObj) => {
 const getLocalHourOffset = (weatherObj, timezoneOffset) => {
   const timeStamp = weatherObj.dt * 1000
   const dateObj = new Date(timeStamp)
-  const localOffset = dateObj.getTimezoneOffset() / 60
-  const cityOffset = -1 * timezoneOffset / (60 * 60)
-  // console.log(`local: ${localOffset}, city: ${cityOffset}`)
-  // console.log(`hour offset: ${localOffset - cityOffset}`)
+  const systemOffset = dateObj.getTimezoneOffset() / 60
+  const localOffset = -1 * timezoneOffset / (60 * 60)
   return {
-    hourOffset: localOffset - cityOffset
+    hourOffset: systemOffset - localOffset
   }
 }
 
