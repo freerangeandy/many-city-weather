@@ -55,6 +55,17 @@ const ManyCityWeather = (props) => {
     setCityList(newCityList)
   }
 
+  const cityShowOffsetHandler = (cityIndex) => () => {
+    const citySelected = cityList[cityIndex]
+    const updatedShowLocal = !citySelected.showLocal
+    const updatedCity = { ...citySelected, showLocal: updatedShowLocal }
+    const newCityList = [
+      ...cityList.slice(0, cityIndex),
+      updatedCity,
+      ...cityList.slice(cityIndex + 1)]
+    setCityList(newCityList)
+  }
+
   return (
     <>
       <h1 className="page-title">How's the weather over there?</h1>
