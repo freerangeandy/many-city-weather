@@ -74,7 +74,11 @@ const ManyCityWeather = (props) => {
         addCityDisplay={addCityDisplay}
         searchFieldRef={searchFieldRef}
       />
-      <CityDisplayPane cityList={cityList} deleteHandler={cityDeleteHandler}/>
+      <CityDisplayPane
+        cityList={cityList}
+        deleteHandler={cityDeleteHandler}
+        showOffsetHandler={cityShowOffsetHandler}
+      />
     </>
   )
 }
