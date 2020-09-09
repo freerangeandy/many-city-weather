@@ -51,9 +51,23 @@ const getWeatherInfo = (weatherObj) => {
   }
 }
 
+const getLocalHourOffset = (weatherObj, timezoneOffset) => {
+  const timeStamp = weatherObj.dt * 1000
+  const dateObj = new Date(timeStamp)
+  const localOffset = dateObj.getTimezoneOffset() / 60
+  const cityOffset = -1 * timezoneOffset / (60 * 60)
+  // console.log(`local: ${localOffset}, city: ${cityOffset}`)
+  // console.log(`hour offset: ${localOffset - cityOffset}`)
+  return {
+    hourOffset: localOffset - cityOffset
+  }
+}
+
+
 export {
   getDisplayHour,
   getHourClass,
   getIcon,
-  getForecasts
+  getForecasts,
+  getLocalHourOffset
 }
