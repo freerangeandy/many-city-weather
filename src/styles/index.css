@@ -78,15 +78,34 @@ body {
   justify-content: space-between;
 }
 
-.delete-button {
+.icon-button {
   margin: 0.5rem;
   color: #4A4A4A;
-  transition: color 0.15s ease-in-out;
+  transition: color 0.1s ease-in;
 }
 
-.delete-button:hover {
+.icon-button:hover {
   color: #EAEFF2;
   cursor: pointer;
+}
+
+.local-time {
+  color: #3F50B5;
+  transition: color 0.1s ease-in;
+}
+
+.local-time-label {
+  opacity: 1;
+  color: #3F50B5;
+  vertical-align: top;
+  font-size: 0.7rem;
+  font-weight: bold;
+  line-height: 2.1rem;
+  transition: opacity 0.1s ease-in;
+}
+
+.hidden {
+  opacity: 0;
 }
 
 .weather-info-tile {

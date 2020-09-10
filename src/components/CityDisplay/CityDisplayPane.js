@@ -4,9 +4,9 @@ import  { TransitionGroup, CSSTransition } from 'react-transition-group'
 import CityWeather from './CityWeather'
 
 const CityDisplayPane = (props) => {
-  const { cityList, deleteHandler } = props
+  const { cityList, deleteHandler, showOffsetHandler } = props
 
-  let displayList = cityList.map(({ name, forecasts }, index) => {
+  let displayList = cityList.map(({ name, showLocal, forecasts }, index) => {
     return (
       <CSSTransition
         key={index}
@@ -16,7 +16,9 @@ const CityDisplayPane = (props) => {
         <CityWeather
           name={name}
           forecasts={forecasts}
+          showLocal={showLocal}
           deleteHandler={deleteHandler(index)}
+          showOffsetHandler={showOffsetHandler(index)}
         />
       </CSSTransition>
     )

@@ -41,8 +41,9 @@ const ManyCityWeather = (props) => {
     })
     .then(response => response.json())
     .then(responseJson => {
-      const forecasts = getForecasts(responseJson.hourly)
-      const newCityList = [...cityList, { ...city, forecasts }]
+      const forecasts = getForecasts(responseJson.hourly, responseJson.timezone_offset)
+      const newCity = { ...city, showLocal: false, forecasts }
+      const newCityList = [...cityList, newCity]
       setCityList(newCityList)
     })
     .catch((error) => console.error(`Error in fetch: ${error.message}`))
@@ -50,6 +51,18 @@ const ManyCityWeather = (props) => {
 
   const cityDeleteHandler = (cityIndex) => () => {
     const newCityList = [...cityList.slice(0, cityIndex), ...cityList.slice(cityIndex + 1)]
+    setCityList(newCityList)
+  }
+
+  const cityShowOffsetHandler = (cityIndex) => () => {
+    const citySelected = cityList[cityIndex]
+    const updatedShowLocal = !citySelected.showLocal
+    const updatedCity = { ...citySelected, showLocal: updatedShowLocal }
+    const newCityList = [
+      ...cityList.slice(0, cityIndex),
+      updatedCity,
+      ...cityList.slice(cityIndex + 1)
+    ]
     setCityList(newCityList)
   }
 
@@ -61,7 +74,11 @@ const ManyCityWeather = (props) => {
         addCityDisplay={addCityDisplay}
         searchFieldRef={searchFieldRef}
       />
-      <CityDisplayPane cityList={cityList} deleteHandler={cityDeleteHandler}/>
+      <CityDisplayPane
+        cityList={cityList}
+        deleteHandler={cityDeleteHandler}
+        showOffsetHandler={cityShowOffsetHandler}
+      />
     </>
   )
 }
