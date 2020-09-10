@@ -11,10 +11,11 @@ const WeatherTile = (props) => {
   const adjustedIcon = getIcon(adjustedHour, weatherInfo.icon)
   const iconSrc = `http://openweathermap.org/img/wn/${adjustedIcon}@2x.png`
   const cardClass = getCardClass(adjustedHour)
+  const timeClass = showLocal ? "local-time" : ""
 
   return (
     <div className="weather-info-tile">
-      <div>
+      <div className={timeClass}>
         <h3>
           {adjustedDate}
         </h3>

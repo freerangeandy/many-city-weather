@@ -21,6 +21,7 @@ const CityWeather = (props) => {
     <li className="city-weather">
       <CityHeader
         name={name}
+        showLocal={showLocal}
         deleteHandler={deleteHandler}
         showOffsetHandler={showOffsetHandler}
       />

@@ -89,6 +89,10 @@ body {
   cursor: pointer;
 }
 
+.local-time {
+  color: #3F50B5;
+}
+
 .weather-info-tile {
   border: 0.2rem solid #EAEFF2;
   border-radius: 0.4rem;
