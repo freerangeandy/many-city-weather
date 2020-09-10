@@ -63,8 +63,8 @@ const getLocalTime = (timeStamp, secondsOffset) => {
   const localHour = localDateObj.getHours()
 
   return {
-    localDate: localDate,
-    localHour: localHour
+    localDate,
+    localHour
   }
 }
 

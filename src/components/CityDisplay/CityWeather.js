@@ -12,16 +12,18 @@ const CityWeather = (props) => {
     .map((weatherInfo, index) => {
       return (
         <Grid item xs={2} key={index}>
-          <WeatherTile
-            weatherInfo={weatherInfo}
-            showLocal={showLocal} />
+          <WeatherTile weatherInfo={weatherInfo} showLocal={showLocal} />
         </Grid>
       )
     })
 
   return (
     <li className="city-weather">
-      <CityHeader name={name} deleteHandler={deleteHandler} showOffsetHandler={showOffsetHandler} />
+      <CityHeader
+        name={name}
+        deleteHandler={deleteHandler}
+        showOffsetHandler={showOffsetHandler}
+      />
       <Grid container spacing={1}>
         {cityTiles}
       </Grid>

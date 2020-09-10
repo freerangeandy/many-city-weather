@@ -12,8 +12,6 @@ const WeatherTile = (props) => {
   const iconSrc = `http://openweathermap.org/img/wn/${adjustedIcon}@2x.png`
   const hourClass = getHourClass(adjustedHour)
 
-  console.log(weatherInfo.localDate)
-  console.log(weatherInfo.localHour)
   return (
     <div className="weather-info-tile">
       <h3>

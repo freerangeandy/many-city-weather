@@ -61,7 +61,8 @@ const ManyCityWeather = (props) => {
     const newCityList = [
       ...cityList.slice(0, cityIndex),
       updatedCity,
-      ...cityList.slice(cityIndex + 1)]
+      ...cityList.slice(cityIndex + 1)
+    ]
     setCityList(newCityList)
   }
 

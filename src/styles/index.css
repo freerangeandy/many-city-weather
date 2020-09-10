@@ -78,13 +78,13 @@ body {
   justify-content: space-between;
 }
 
-.delete-button {
+.icon-button {
   margin: 0.5rem;
   color: #4A4A4A;
   transition: color 0.15s ease-in-out;
 }
 
-.delete-button:hover {
+.icon-button:hover {
   color: #EAEFF2;
   cursor: pointer;
 }

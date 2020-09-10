@@ -8,11 +8,11 @@ const CityHeader = props => {
   return (
     <div className="city-header">
       <div onClick={props.showOffsetHandler}>
-        <FontAwesomeIcon className="delete-button" icon={ faClock } />
+        <FontAwesomeIcon className="icon-button" icon={ faClock } />
       </div>
       <div className="city-name"><h1>{props.name}</h1></div>
       <div onClick={props.deleteHandler}>
-        <FontAwesomeIcon className="delete-button" icon={ faTimes } />
+        <FontAwesomeIcon className="icon-button" icon={ faTimes } />
       </div>
     </div>
   )
