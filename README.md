@@ -17,6 +17,8 @@ To see the weather forecast (next 6 hours) for a particular location, begin typi
 
 After selecting a search result, press the (+) Add Location button and a row of hourly forecasts for that location will appear. Since the Search field automatically clears out after a location is added, another location can then be searched for and have its forecast subsequently displayed below any existing forecasts.
 
+By default, the dates and hours shown are for your host system's time zone. To instead view the dates and hours in a location's local time zone, click on the clock button in the upper left corner of the forecast area (click again to toggle back).
+
 To remove any location's forecasts from the visible list, click on the (x) delete button in the area's upper right corner.  
 
 ## Credits
