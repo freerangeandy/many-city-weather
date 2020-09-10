@@ -1,7 +1,7 @@
 import React from 'react'
 import Avatar from '@material-ui/core/Avatar';
 
-import { getDisplayHour, getHourClass, getIcon } from '../../shared/utility'
+import { getDisplayHour, getCardClass, getIcon } from '../../shared/utility'
 
 const WeatherTile = (props) => {
   const { weatherInfo, showLocal } = props
@@ -10,17 +10,19 @@ const WeatherTile = (props) => {
   const adjustedHour = showLocal ? weatherInfo.localHour : weatherInfo.hour
   const adjustedIcon = getIcon(adjustedHour, weatherInfo.icon)
   const iconSrc = `http://openweathermap.org/img/wn/${adjustedIcon}@2x.png`
-  const hourClass = getHourClass(adjustedHour)
+  const cardClass = getCardClass(adjustedHour)
 
   return (
     <div className="weather-info-tile">
-      <h3>
-        {adjustedDate}
-      </h3>
-      <h2>
-        {getDisplayHour(adjustedHour)}
-      </h2>
-      <div className={`weather-card ${hourClass}`}>
+      <div>
+        <h3>
+          {adjustedDate}
+        </h3>
+        <h2>
+          {getDisplayHour(adjustedHour)}
+        </h2>
+      </div>
+      <div className={`weather-card ${cardClass}`}>
         <h2>
           {weatherInfo.temp.toFixed(0)} °F
         </h2>

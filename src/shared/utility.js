@@ -11,7 +11,7 @@ const getDisplayHour = (hour) => {
 
 const isNight = (hour) => (hour >= 21 || hour < 6)
 
-const getHourClass = (hour) => {
+const getCardClass = (hour) => {
   return isNight(hour) ? "night-bg" : "day-bg"
 }
 
@@ -71,7 +71,7 @@ const getLocalTime = (timeStamp, secondsOffset) => {
 
 export {
   getDisplayHour,
-  getHourClass,
+  getCardClass,
   getIcon,
   getForecasts
 }
